@@ -17,13 +17,9 @@ const port = process.env.PORT || 5001;
 //middleware
 // Middleware to serve Vite-built files
   
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
-
-// Middleware to handle all other routes
-app.get('*', (req, res) => {
-    
-    res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
-  });
+app.get('/',(req,res)=>{
+    res.status(200).json({message:"congrats you got the backend"});
+})
 
 //created array which will store userName at a index which is its SocketId 
  const userSocketMap={};
